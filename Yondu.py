@@ -3,7 +3,11 @@ while True: #put while loop here to make sure we get a whole number to start wit
     try:    #You can't technically have half a pirate, even if he has a metal arm or missing limb, still is just one pirate. So that's my logic
         piratesString = input("How many pirates:")
         pirates = int(piratesString)
-        break
+        if pirates > 2:
+            break
+        else:
+            print("Invalid input. Please enter a whole number greater than 2.  Otherwise Yondu and Peter don't have a crew :(")
+
     except ValueError:
         print("Invalid input, please put a whole number.")
 
@@ -12,8 +16,8 @@ while True: #Made it opperate like money so you can have it rounded to 2 decimal
         unitsString = input("How many Units:")
         units = round(float(unitsString),2)
         break
-    except:
-        print("Invalid input, please put a number rounded to two decimals")
+    except ValueError:
+        print("Invalid input, please put a number")
 
 piratesX = pirates - 2 
 #piratesX is pirates excluding Quill and Yondu
@@ -33,12 +37,15 @@ units = round(units, 2)
 peterQuillCut1 = round(peterQuillCut1, 2) #Using money logic
 units = units - peterQuillCut1
 
+#This is the Crew's final cut
+units = units / pirates
+units = round(units, 2)
 
+#Finalizing the total cuts of each share
+finalCrewShare = units + 3 #number they got at the beginning
+yonduCutTotal = yonduCut1 + units
+peterQuillTotal = peterQuillCut1 + units
 
-
-yonduCutTotal = yonduCut1
-peterQuillTotal = peterQuillCut1
-
-print(f"current units: {units}")
-print(f"Yondu's share: {yonduCutTotal}")
-print(f"Peter's share: {peterQuillTotal}")
+print(f"Yondu's share: {yonduCutTotal:.2f}")
+print(f"Peter's share: {peterQuillTotal:.2f}")
+print(f"Crew's share: {finalCrewShare:.2f}")
