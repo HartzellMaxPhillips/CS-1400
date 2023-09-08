@@ -1,8 +1,0 @@
-piratesString = input("How many pirates:")
-pirates = int(piratesString)
-
-unitsString = input("How many Units:")
-units = int(unitsString)
-
-print(pirates)
-print(units)
