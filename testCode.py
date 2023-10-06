@@ -17,3 +17,10 @@ while True:
         print("Invalid input. Please enter a valid float rounded to 2 decimals.")
 
 print("You entered:", float_value)
+
+
+'''test_number = 2.3234
+if three_decimal_places(test_number):
+    print("correct decimal")
+else:
+    print("incorrect deciaml")'''

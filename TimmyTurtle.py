@@ -18,12 +18,12 @@ ran_size2 = randrange(1,4)
 
 def build_triangle(): #making a randomly generated Triangle of different sizes and colors
     ran_color = choice(color_list)
-    ran_size1 = randrange(15, 125) 
+    ran_size1 = randrange(15, 50) 
     triangle_color = ran_color
     pencolor(triangle_color)
     fillcolor(triangle_color)
-    if triangle_color == "gold" or triangle_color == "magenta":
-        ran_size1 = 225
+    #if triangle_color == "gold" or triangle_color == "magenta":
+        #ran_size1 = 225
     begin_fill()
     for _ in range(2):
         forward(ran_size1)
@@ -37,8 +37,8 @@ def build_circle(): #making a randomly generated circle of different colors and 
     circle_color = ran_color
     pencolor(circle_color)
     fillcolor(circle_color)
-    if circle_color == "gold" or circle_color == "purple":
-        ran_size2 = 115
+    #if circle_color == "gold" or circle_color == "purple":
+        #ran_size2 = 115
     begin_fill()
     circle(ran_size2)
     end_fill()
@@ -46,12 +46,12 @@ def build_circle(): #making a randomly generated circle of different colors and 
 
 def build_square(): #making a randomly generated square with different colors and sizes
     ran_color = choice(color_list)
-    ran_size1 = randrange(15, 125)
+    ran_size1 = randrange(15, 50)
     square_color = ran_color
     pencolor(square_color)
     fillcolor(square_color)
-    if square_color == "purple" or square_color == "magenta":
-        ran_size1 = 175
+    #if square_color == "purple" or square_color == "magenta":
+        #ran_size1 = 175
     begin_fill()
     for _ in range(4):
         forward(ran_size1)
@@ -68,16 +68,13 @@ def random_move():
     down()
 
 shape_number = 0
-shape_max = randrange(30, 60)
+shape_max = randrange(1000, 2000)
 
 while (shape_number < shape_max): #the main running loop to make it continuously go until completed.
     build_triangle()
     shape_number += 1
     random_move()
     build_square()
-    shape_number += 1
-    random_move()
-    build_circle()
     shape_number += 1
     random_move()
 
