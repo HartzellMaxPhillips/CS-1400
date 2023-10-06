@@ -1,4 +1,9 @@
-while True:
+import sys
+
+x = len(sys.argv)
+print(x)
+
+'''while True:
     try:
         user_input = input("Enter an integer: ")
         integer_value = int(user_input)
@@ -16,7 +21,7 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid float rounded to 2 decimals.")
 
-print("You entered:", float_value)
+print("You entered:", float_value)'''
 
 ###
 '''test_number = 2.3234
