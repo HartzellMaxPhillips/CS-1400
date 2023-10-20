@@ -1,85 +1,75 @@
 from turtle import *#running everything in Turtle
-from random import *#getting some random number generator
 
- #setting t as a variable for our turtle
-shape('turtle')
-pensize(4)
-speed(10)
 
-'''yellow, gold, orange, red, maroon, violet, magenta, purple, navy, blue, 
+def set_turtle():
+    shape('turtle')
+    pensize(4)
+    speed(10)
+    color("blue")
+
+'''This is a list of colors for inspiration: yellow, gold, orange, red, maroon, violet, magenta, purple, navy, blue, 
 skyblue, cyan, turquoise, lightgreen, green, darkgreen, chocolate, brown, black, gray, white'''
 
-color_list = ["yellow", "gold", "orange", "red", "maroon", "violet", "magenta", "purple", "navy", "blue", 
-"skyblue", "cyan", "turquoise", "lightgreen", "green", "darkgreen", 
-"chocolate", "brown", "black", "gray",]
-ran_color = choice(color_list)
-ran_size1 = randrange(30, 100)
-ran_size2 = randrange(1,4)
-
-def build_triangle(size): #making a randomly generated Triangle of different sizes and colors
-    #ran_color = choice(color_list)
-    #ran_size1 = randrange(15, 50) 
-    triangle_color = ran_color
-    pencolor(triangle_color)
-    fillcolor(triangle_color)
-    #if triangle_color == "gold" or triangle_color == "magenta":
-        #ran_size1 = 225
+def build_triangle(size, color): #making a randomly generated Triangle of different sizes and colors
+    pencolor(color)
+    fillcolor(color)
     begin_fill()
+    lt(180)
     for _ in range(2):
         forward(size)
         rt(120)
     end_fill()
 
 
-def build_circle(size): #making a randomly generated circle of different colors and sizes
-    ran_color = choice(color_list)
-    ran_size2 = randrange(15,80)
-    circle_color = ran_color
-    pencolor(circle_color)
-    fillcolor(circle_color)
-    #if circle_color == "gold" or circle_color == "purple":
-        #ran_size2 = 115
+def build_circle(size, color): #making a specific size of circle with a choice of color
+    pencolor(color)
+    fillcolor(color)
     begin_fill()
     circle(size)
     end_fill()
 
 
-def build_rectangle(length, width): #making a randomly generated square with different colors and sizes
-    ran_color = choice(color_list)
-    #ran_size1 = randrange(15, 50)
-    square_color = ran_color
-    pencolor(square_color)
-    fillcolor(square_color)
-    #if square_color == "purple" or square_color == "magenta":
-        #ran_size1 = 175
+def build_rectangle(length, width, color): #making a specific size of rectangle with a choice of color
+    pencolor(color)
+    fillcolor(color)
     begin_fill()
     for _ in range(2):
         forward(length)
-        rt(90)
+        lt(90)
         forward(width)
-        rt(90)
+        lt(90)
     end_fill()
 
-def build_house():
+def build_house(size, color, color2):
+    build_rectangle(size, size, color)
+    penup()
+    goto(size*1.1, size*1.03)
+    pendown()
+    build_triangle(size*1.2, color)
+    penup()
+    goto(size*0.85, size*0.85)
+    pendown()
+    setheading(180)
+    build_rectangle(size/4, size/4, color2)
+    penup()
+    goto(size*0.15, size*0.85)
+    setheading(270)
+    pendown()
+    build_rectangle(size/4, size/4, color2)
+    penup()
+    goto(size*0.375, 0)
+    pendown()
+    setheading(0)
+    build_rectangle(size/4, size*0.4, color2)
+
+
     
 def build_something():
+    build_circle(50)
 
-
-
-def random_move():
-    up()
-    rand_x = randrange(-300, 300)
-    rand_y = randrange(-300, 300)
-    setx(rand_x)
-    sety(rand_y)
-    down()
-
-shape_number = 0
-shape_max = randrange(1000, 2000)
-
-build_rectangle(30, 50)
-#build_triangle(50)
-#build_circle(30)
+#def main()
+set_turtle()
+build_house(100, "purple", "gold")
 
 '''while (shape_number < shape_max): #the main running loop to make it continuously go until completed.
     build_triangle()
