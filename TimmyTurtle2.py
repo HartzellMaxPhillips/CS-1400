@@ -44,7 +44,7 @@ def build_circle(size): #making a randomly generated circle of different colors 
     end_fill()
 
 
-def build_square(length, width): #making a randomly generated square with different colors and sizes
+def build_rectangle(length, width): #making a randomly generated square with different colors and sizes
     ran_color = choice(color_list)
     #ran_size1 = randrange(15, 50)
     square_color = ran_color
@@ -60,6 +60,11 @@ def build_square(length, width): #making a randomly generated square with differ
         rt(90)
     end_fill()
 
+def build_house():
+    
+def build_something():
+
+
 
 def random_move():
     up()
@@ -72,7 +77,7 @@ def random_move():
 shape_number = 0
 shape_max = randrange(1000, 2000)
 
-build_square(30, 50)
+build_rectangle(30, 50)
 #build_triangle(50)
 #build_circle(30)
 

@@ -36,9 +36,7 @@ def make_a_knot():
         turn_right()
         smallKnot = smallKnot+1
 
-make_a_knot()
-make_a_circle()
-make_a_spiral()
+
 
 
 turtle.mainloop()      # should be last line of program
