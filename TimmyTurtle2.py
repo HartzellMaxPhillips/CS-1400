@@ -1,8 +1,7 @@
 from turtle import *#running everything in Turtle
-
+from sys import *
 
 def set_turtle():
-    shape('turtle')
     pensize(4)
     speed(10)
     color("blue")
@@ -40,44 +39,103 @@ def build_rectangle(length, width, color): #making a specific size of rectangle 
         lt(90)
     end_fill()
 
-def build_house(size, color, color2):
-    build_rectangle(size, size, color)
-    penup()
-    goto(size*1.1, size*1.03)
-    pendown()
-    build_triangle(size*1.2, color)
-    penup()
-    goto(size*0.85, size*0.85)
-    pendown()
-    setheading(180)
-    build_rectangle(size/4, size/4, color2)
-    penup()
-    goto(size*0.15, size*0.85)
-    setheading(270)
-    pendown()
-    build_rectangle(size/4, size/4, color2)
-    penup()
-    goto(size*0.375, 0)
-    pendown()
-    setheading(0)
-    build_rectangle(size/4, size*0.4, color2)
+def build_house(location, size, color, color2):
+    if size > 0:
+        penup()
+        goto(location, 0)
+        pendown()
+        build_rectangle(size, size, color)
+        penup()
+        goto(location + size*1.1, size*1.03)
+        pendown()
+        build_triangle(size*1.2, color)
+        penup()
+        goto(location + size*0.85, size*0.85)
+        pendown()
+        setheading(180)
+        build_rectangle(size/4, size/4, color2)
+        penup()
+        goto(location + size*0.15, size*0.85)
+        setheading(270)
+        pendown()
+        build_rectangle(size/4, size/4, color2)
+        penup()
+        goto(location+ size*0.375, 0)
+        pendown()
+        setheading(0)
+        build_rectangle(size/4, size*0.4, color2)
+    if size < 0:
+        penup()
+        goto(location + size, 0)
+        pendown()
+        build_rectangle(size, -size, color)
+        penup()
+        goto(location + size*0.9, -size*1.03)
+        pendown()
+        build_triangle(-size*1.2, color)
+        penup()
+        goto(location + size*1.15, -size*0.85)
+        pendown()
+        setheading(90)
+        build_rectangle(size/4, -size/4, color2)
+        penup()
+        goto(location + size*1.85, -size*0.85)
+        setheading(180)
+        pendown()
+        build_rectangle(size/4, -size/4, color2)
+        penup()
+        goto(location  + size*1.375, 0)
+        pendown()
+        setheading(0)
+        build_rectangle(size/4, -size*0.4, color2)
 
 
     
-def build_something():
-    build_circle(50)
+def build_sun(location, size, color, color2, color3):
+    penup()
+    goto(location, 200)
+    pendown()
+    build_circle(size, color)
+    penup()
+    goto(location, 200 + size/2)
+    pendown()
+    build_circle(size/2, color2)
+    penup()
+    goto(location - size, 200 + size *1.5)
+    setheading(90)
+    pendown()
+    build_triangle(size, color3)
+    penup()
+    goto(location + size, 200 + size *0.5)
+    setheading(270)
+    pendown()
+    build_triangle(size, color3)
+    penup()
+    
 
-#def main()
-set_turtle()
-build_house(100, "purple", "gold")
+def main(x):
+    if x == 1: #Halloween
+        set_turtle()
+        build_house(150, 50, "purple", "gold")
+        build_house(-150, 50, "gold", "purple")
+        build_house(50, 50, "Black", "Orange")
+        build_house(-50, 50, "orange", "black")
+        build_sun(150, 50, "black", "orange", "red")
+    elif x == 2: #Christmas
+        set_turtle()
+        build_house(150, 100, "green", "red")
+        build_house(-150, 100, "red", "green")
+        build_sun(200, 40, "blue", "skyblue", "red")
+    elif x == 3: #valentines
+        set_turtle()
+        build_house(50, 100, "pink", "blue")
+        build_house(-50, 100, "blue", "pink")
+        build_house(250, 150, "red", "pink")
+        build_sun(-100, 75, "pink", "red", "blue")
+    else:
+        print("Please input 1, 2, or 3")
 
-'''while (shape_number < shape_max): #the main running loop to make it continuously go until completed.
-    build_triangle()
-    shape_number += 1
-    random_move()
-    build_square()
-    shape_number += 1
-    random_move()'''
+print(argv[1])
+main(int(argv[1]))
 
 
-mainloop()

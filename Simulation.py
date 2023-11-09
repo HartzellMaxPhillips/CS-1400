@@ -1,5 +1,7 @@
 import sys
 
+
+
 def get_input(): #Acquires the input from the console.
 
     population = float(sys.argv[1])
