@@ -1,0 +1,8 @@
+TTC
+Longest line: (4): "It was the best of times, it was the worst of times,"
+Average length: 43
+"It was the best of times, it was the worst of times,"
+"This is a test to see if my code works."
+"Hopefully I can make it work."
+"It was the best of times, it was the worst of times,"
+"I unfortunately need another line."
